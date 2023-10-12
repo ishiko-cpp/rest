@@ -16,7 +16,7 @@ program IshikoRESTTests : IshikoTestFrameworkCore
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += IshikoTestFrameworkCore IshikoXML;
+        libs += IshikoTestFrameworkCore IshikoXML IshikoFileSystem;
     }
 
     sources

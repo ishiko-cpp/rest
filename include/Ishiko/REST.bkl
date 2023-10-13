@@ -1,0 +1,20 @@
+setting ISHIKO_CPP_REST_ROOT
+{
+    help = "Path to the Ishiko REST installation";
+    default = '$(ISHIKO_CPP)/rest';
+}
+
+template IshikoREST
+{
+    includedirs += $(ISHIKO_CPP_REST_ROOT)/include;
+
+    if ($(toolset) == gnu)
+    {
+        libdirs += $(ISHIKO_CPP_REST_ROOT)/lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        libdirs += $(ISHIKO_CPP_REST_ROOT)/lib/$(arch);
+    }
+}

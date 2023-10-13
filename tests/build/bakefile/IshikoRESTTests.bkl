@@ -1,4 +1,5 @@
 ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/rest/include/Ishiko/REST.bkl;
 import $(ishikopath)/test-framework/include/Ishiko/TestFramework/Core.bkl;
 
 toolsets = gnu vs2019 vs2017 vs2015 vs2013;
@@ -9,14 +10,14 @@ vs2017.solutionfile = ../vc15/IshikoRESTTests.sln;
 vs2015.solutionfile = ../vc14/IshikoRESTTests.sln;
 vs2013.solutionfile = ../vc12/IshikoRESTTests.sln;
 
-program IshikoRESTTests : IshikoTestFrameworkCore
+program IshikoRESTTests : IshikoREST, IshikoTestFrameworkCore
 {
     archs = x86 x86_64;
 
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += IshikoTestFrameworkCore IshikoConfiguration IshikoXML IshikoFileSystem IshikoIO IshikoProcess IshikoTime IshikoText IshikoErrors;
+        libs += IshikoREST IshikoTestFrameworkCore IshikoConfiguration IshikoXML IshikoFileSystem IshikoIO IshikoProcess IshikoTime IshikoText IshikoErrors;
         libs += fmt boost_filesystem;
     }
 

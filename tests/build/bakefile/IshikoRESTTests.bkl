@@ -20,8 +20,14 @@ program IshikoRESTTests : IshikoTestFrameworkCore
         libs += fmt boost_filesystem;
     }
 
+    headers
+    {
+        ../../src/RESTClientTests.hpp
+    }
+
     sources
     {
         ../../src/main.cpp
+        ../../src/RESTClientTests.cpp
     }
 }

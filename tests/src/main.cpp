@@ -1,9 +1,7 @@
-/*
-    Copyright (c) 2023 Xavier Leclercq
-    Released under the MIT License
-    See https://github.com/ishiko-cpp/rest/blob/main/LICENSE.txt
-*/
+// SPDX-FileCopyrightText: 2005-2024 Xavier Leclercq
+// SPDX-License-Identifier: BSL-1.0
 
+#include "RESTClientTests.hpp"
 #include <Ishiko/TestFramework/Core.hpp>
 #include <exception>
 
@@ -18,6 +16,9 @@ int main(int argc, char* argv[])
         CommandLineParser::parse(commandLineSpec, argc, argv, configuration);
 
         TestHarness theTestHarness("Ishiko/C++ REST Library Tests", configuration);
+
+        TestSequence& theTests = theTestHarness.tests();
+        theTests.append<RESTClientTests>();
 
         return theTestHarness.run();
     }
